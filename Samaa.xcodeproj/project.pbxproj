@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BC7B9DB92FD1D8E2007C248D /* Samaa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Samaa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC7B9DB92FD1D8E2007C248D /* Samaa'.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Samaa'.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamaaApp.swift; sourceTree = "<group>"; };
 		BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BC7B9DC02FD1D8E4007C248D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +43,7 @@
 		BC7B9DBA2FD1D8E2007C248D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				BC7B9DB92FD1D8E2007C248D /* Samaa.app */,
+				BC7B9DB92FD1D8E2007C248D /* Samaa'.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,8 +51,11 @@
 		BC7B9DBB2FD1D8E2007C248D /* Samaa */ = {
 			isa = PBXGroup;
 			children = (
-				BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */,
-				BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */,
+				BC866A1D2FD1DFBA00BC185D /* App */,
+				BC866A1E2FD1DFC000BC185D /* Modules */,
+				BC866A1B2FD1DFA700BC185D /* Models */,
+				BC866A1C2FD1DFA700BC185D /* Services */,
+				BC866A1A2FD1DFA700BC185D /* Views */,
 				BC7B9DC02FD1D8E4007C248D /* Assets.xcassets */,
 				BC7B9DC22FD1D8E4007C248D /* Preview Content */,
 			);
@@ -65,6 +68,51 @@
 				BC7B9DC32FD1D8E4007C248D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BC866A1A2FD1DFA700BC185D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BC866A1B2FD1DFA700BC185D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BC866A1C2FD1DFA700BC185D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BC866A1D2FD1DFBA00BC185D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		BC866A1E2FD1DFC000BC185D /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				BC866A1F2FD1DFC800BC185D /* Weather */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		BC866A1F2FD1DFC800BC185D /* Weather */ = {
+			isa = PBXGroup;
+			children = (
+				BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */,
+			);
+			path = Weather;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,7 +132,7 @@
 			);
 			name = Samaa;
 			productName = Samaa;
-			productReference = BC7B9DB92FD1D8E2007C248D /* Samaa.app */;
+			productReference = BC7B9DB92FD1D8E2007C248D /* Samaa'.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -282,7 +330,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iti.Samaa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Samaa'";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,7 +358,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iti.Samaa;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Samaa'";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
