@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC2732B32FD1F2A300FEAAF8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732B22FD1F2A300FEAAF8 /* SplashView.swift */; };
+		BC2732B82FD1F36B00FEAAF8 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732B72FD1F36B00FEAAF8 /* AppColors.swift */; };
+		BC2732BA2FD1F3B500FEAAF8 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732B92FD1F3B500FEAAF8 /* Color+Hex.swift */; };
+		BC2732BF2FD1FD9400FEAAF8 /* ThemeBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732BE2FD1FD9400FEAAF8 /* ThemeBackground.swift */; };
+		BC2732C12FD1FDEE00FEAAF8 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732C02FD1FDEE00FEAAF8 /* AppTheme.swift */; };
+		BC2732C42FD1FF3E00FEAAF8 /* AppStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732C32FD1FF3E00FEAAF8 /* AppStrings.swift */; };
+		BC2732C62FD2010700FEAAF8 /* AppImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732C52FD2010700FEAAF8 /* AppImages.swift */; };
+		BC2732C92FD2096800FEAAF8 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732C82FD2096800FEAAF8 /* AppRouter.swift */; };
+		BC2732CB2FD20C1700FEAAF8 /* View+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732CA2FD20C1700FEAAF8 /* View+Navigation.swift */; };
+		BC2732CD2FD2138700FEAAF8 /* ThemeBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC2732CC2FD2138700FEAAF8 /* ThemeBackgroundView.swift */; };
 		BC7B9DBD2FD1D8E2007C248D /* SamaaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */; };
 		BC7B9DBF2FD1D8E2007C248D /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B9DBE2FD1D8E2007C248D /* WeatherView.swift */; };
 		BC7B9DC12FD1D8E4007C248D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7B9DC02FD1D8E4007C248D /* Assets.xcassets */; };
@@ -14,6 +24,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC2732B22FD1F2A300FEAAF8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		BC2732B72FD1F36B00FEAAF8 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		BC2732B92FD1F3B500FEAAF8 /* Color+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		BC2732BE2FD1FD9400FEAAF8 /* ThemeBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeBackground.swift; sourceTree = "<group>"; };
+		BC2732C02FD1FDEE00FEAAF8 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		BC2732C32FD1FF3E00FEAAF8 /* AppStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStrings.swift; sourceTree = "<group>"; };
+		BC2732C52FD2010700FEAAF8 /* AppImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImages.swift; sourceTree = "<group>"; };
+		BC2732C82FD2096800FEAAF8 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		BC2732CA2FD20C1700FEAAF8 /* View+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Navigation.swift"; sourceTree = "<group>"; };
+		BC2732CC2FD2138700FEAAF8 /* ThemeBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeBackgroundView.swift; sourceTree = "<group>"; };
 		BC7B9DB92FD1D8E2007C248D /* Samaa'.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Samaa'.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamaaApp.swift; sourceTree = "<group>"; };
 		BC7B9DBE2FD1D8E2007C248D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
@@ -32,6 +52,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC2732B12FD1F29100FEAAF8 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732B22FD1F2A300FEAAF8 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BC2732B42FD1F33E00FEAAF8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732C72FD2095800FEAAF8 /* Navigation */,
+				BC2732C22FD1FF1C00FEAAF8 /* Resources */,
+				BC2732B62FD1F35C00FEAAF8 /* Extensions */,
+				BC2732B52FD1F35800FEAAF8 /* Theme */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		BC2732B52FD1F35800FEAAF8 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732B72FD1F36B00FEAAF8 /* AppColors.swift */,
+				BC2732BE2FD1FD9400FEAAF8 /* ThemeBackground.swift */,
+				BC2732C02FD1FDEE00FEAAF8 /* AppTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		BC2732B62FD1F35C00FEAAF8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732B92FD1F3B500FEAAF8 /* Color+Hex.swift */,
+				BC2732CA2FD20C1700FEAAF8 /* View+Navigation.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BC2732C22FD1FF1C00FEAAF8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732C32FD1FF3E00FEAAF8 /* AppStrings.swift */,
+				BC2732C52FD2010700FEAAF8 /* AppImages.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BC2732C72FD2095800FEAAF8 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				BC2732C82FD2096800FEAAF8 /* AppRouter.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		BC7B9DB02FD1D8E2007C248D = {
 			isa = PBXGroup;
 			children = (
@@ -51,6 +126,7 @@
 		BC7B9DBB2FD1D8E2007C248D /* Samaa */ = {
 			isa = PBXGroup;
 			children = (
+				BC2732B42FD1F33E00FEAAF8 /* Core */,
 				BC866A1D2FD1DFBA00BC185D /* App */,
 				BC866A1E2FD1DFC000BC185D /* Modules */,
 				BC866A1B2FD1DFA700BC185D /* Models */,
@@ -73,6 +149,7 @@
 		BC866A1A2FD1DFA700BC185D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BC2732CC2FD2138700FEAAF8 /* ThemeBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -102,6 +179,7 @@
 		BC866A1E2FD1DFC000BC185D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				BC2732B12FD1F29100FEAAF8 /* Splash */,
 				BC866A1F2FD1DFC800BC185D /* Weather */,
 			);
 			path = Modules;
@@ -185,8 +263,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC2732BF2FD1FD9400FEAAF8 /* ThemeBackground.swift in Sources */,
+				BC2732C62FD2010700FEAAF8 /* AppImages.swift in Sources */,
+				BC2732BA2FD1F3B500FEAAF8 /* Color+Hex.swift in Sources */,
 				BC7B9DBF2FD1D8E2007C248D /* WeatherView.swift in Sources */,
 				BC7B9DBD2FD1D8E2007C248D /* SamaaApp.swift in Sources */,
+				BC2732C12FD1FDEE00FEAAF8 /* AppTheme.swift in Sources */,
+				BC2732CD2FD2138700FEAAF8 /* ThemeBackgroundView.swift in Sources */,
+				BC2732B82FD1F36B00FEAAF8 /* AppColors.swift in Sources */,
+				BC2732C42FD1FF3E00FEAAF8 /* AppStrings.swift in Sources */,
+				BC2732C92FD2096800FEAAF8 /* AppRouter.swift in Sources */,
+				BC2732B32FD1F2A300FEAAF8 /* SplashView.swift in Sources */,
+				BC2732CB2FD20C1700FEAAF8 /* View+Navigation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,9 +407,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Samaa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Samaa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -347,9 +437,11 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Samaa/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Samaa/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

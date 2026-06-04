@@ -9,9 +9,19 @@ import SwiftUI
 
 @main
 struct SamaaApp: App {
+
+    @StateObject private var router = AppRouter()
+
     var body: some Scene {
         WindowGroup {
-            WeatherView()
+            NavigationView {
+                switch router.currentScreen {
+                    case .splash: SplashView().hiddenNavigationBar()
+                    case .weather: WeatherView().hiddenNavigationBar()
+                }
+            }
+            .navigationViewStyle(.stack)
+            .environmentObject(router)
         }
     }
 }

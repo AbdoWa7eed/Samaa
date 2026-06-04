@@ -9,9 +9,12 @@ import SwiftUI
 
 struct WeatherView: View {
     var body: some View {
-        Text("WELCOME TO SAMAA'!")
-            .fontWeight(.bold)
-            .padding()
+        ThemeBackgroundView {
+            Text("WELCOME TO SAMAA'!")
+                .foregroundColor(AppColors.onPrimary)
+                .fontWeight(.bold)
+                .padding()
+        }
     }
 }
 
