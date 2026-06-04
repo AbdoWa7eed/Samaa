@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC7B9DBD2FD1D8E2007C248D /* SamaaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */; };
-		BC7B9DBF2FD1D8E2007C248D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */; };
+		BC7B9DBF2FD1D8E2007C248D /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7B9DBE2FD1D8E2007C248D /* WeatherView.swift */; };
 		BC7B9DC12FD1D8E4007C248D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7B9DC02FD1D8E4007C248D /* Assets.xcassets */; };
 		BC7B9DC42FD1D8E4007C248D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC7B9DC32FD1D8E4007C248D /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		BC7B9DB92FD1D8E2007C248D /* Samaa'.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Samaa'.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC7B9DBC2FD1D8E2007C248D /* SamaaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamaaApp.swift; sourceTree = "<group>"; };
-		BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BC7B9DBE2FD1D8E2007C248D /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		BC7B9DC02FD1D8E4007C248D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BC7B9DC32FD1D8E4007C248D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,7 +110,7 @@
 		BC866A1F2FD1DFC800BC185D /* Weather */ = {
 			isa = PBXGroup;
 			children = (
-				BC7B9DBE2FD1D8E2007C248D /* ContentView.swift */,
+				BC7B9DBE2FD1D8E2007C248D /* WeatherView.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -185,7 +185,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BC7B9DBF2FD1D8E2007C248D /* ContentView.swift in Sources */,
+				BC7B9DBF2FD1D8E2007C248D /* WeatherView.swift in Sources */,
 				BC7B9DBD2FD1D8E2007C248D /* SamaaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
