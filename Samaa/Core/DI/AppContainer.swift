@@ -21,4 +21,15 @@ final class AppContainer {
     private lazy var weatherService: WeatherServiceProtocol = {
         WeatherService(apiClient: self.apiClient)
     }()
+    
+    private lazy var locationManager: LocationManager = {
+        LocationManager()
+    }()
+
+    func makeWeatherViewModel() -> WeatherViewModel {
+        WeatherViewModel(
+            weatherService: weatherService,
+            locationManager: locationManager
+        )
+    }
 }

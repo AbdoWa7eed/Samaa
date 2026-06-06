@@ -10,36 +10,46 @@ import SwiftUI
 
 struct AppColors {
 
-    static var primary: Color {
-        switch AppTheme.current {
-        case .day:
-            return dayBackground
-        case .night:
-            return nightBackground
-        }
-    }
-
     static var onPrimary: Color {
-        switch AppTheme.current {
-        case .day:
-            return dayText
-        case .night:
-            return nightText
-        }
+        AppTheme.current == .day ? dayText : nightText
     }
 
     static var onSecondary: Color {
-        switch AppTheme.current {
-        case .day:
-            return daySecondaryText
-        case .night:
-            return nightSecondaryText
-        }
+        AppTheme.current == .day ? daySecondaryText : nightSecondaryText
     }
 
+    static var cardBackground: Color {
+        AppTheme.current == .day
+            ? Color.white.opacity(0.25)
+            : Color.white.opacity(0.08)
+    }
 
-    private static let dayBackground = Color(hex: "F0F4FF")
-    private static let nightBackground = Color(hex: "0B1020")
+    static var cardBorder: Color {
+        AppTheme.current == .day
+            ? Color.white.opacity(0.4)
+            : Color.white.opacity(0.15)
+    }
+
+    static var cardDivider: Color {
+        AppTheme.current == .day
+            ? Color.black.opacity(0.1)
+            : Color.white.opacity(0.08)
+    }
+
+    static var tileBackground: Color {
+        AppTheme.current == .day
+            ? Color.white.opacity(0.25)
+            : Color.white.opacity(0.07)
+    }
+
+    static var conditionBadgeBackground: Color {
+        AppTheme.current == .day
+            ? Color.black.opacity(0.08)
+            : Color.white.opacity(0.1)
+    }
+
+    static let highTempColor = Color(hex: "FF4B4B")
+    static let lowTempColor = Color(hex: "4B9EFF")
 
     private static let dayText = Color(hex: "1A1C2E")
     private static let nightText = Color(hex: "F0F4FF")
