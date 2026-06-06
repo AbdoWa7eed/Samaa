@@ -20,7 +20,7 @@ final class WeatherService: WeatherServiceProtocol {
       endpoint: ApiConstants.Endpoint.forecast,
       parameters: [
         ApiConstants.Params.query: coordinate.queryString,
-        ApiConstants.Params.days: "3",
+        ApiConstants.Params.days: "4",
         ApiConstants.Params.aqi: "no",
         ApiConstants.Params.alerts: "no",
       ]

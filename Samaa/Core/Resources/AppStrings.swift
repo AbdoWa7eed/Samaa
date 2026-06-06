@@ -37,4 +37,10 @@ struct AppStrings {
         static let retry = "Retry"
         static let conditionBadge = "condition"
     }
+    
+    
+    struct HourlyForecast {
+        static let hourlyForecast = "HOURLY FORECAST"
+        static let now = "Now"
+    }
 }

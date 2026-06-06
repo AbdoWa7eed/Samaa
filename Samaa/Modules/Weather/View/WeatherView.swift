@@ -71,7 +71,10 @@ struct WeatherView: View {
     private func contentView(weather: WeatherEntity) -> some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
-                WeatherHeroView(weather: weather)
+                NavigationLink(destination: HourlyView(day: weather.forecast[0])) {
+                    WeatherHeroView(weather: weather)
+                }
+                .buttonStyle(PlainButtonStyle())
 
                 ForecastCardView(days: weather.forecast)
                     .padding(.horizontal, 20)

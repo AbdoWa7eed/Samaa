@@ -25,7 +25,8 @@ struct AppImages {
         static let feelsLike = "thermometer"
         static let pressure = "gauge"
         static let error = "exclamationmark.triangle"
-        static let highTemp = "arrow.up"
-        static let lowTemp = "arrow.down"
+        static let highTemp = "thermometer.sun"
+        static let lowTemp = "thermometer.snowflake"
+        static let back = "chevron.left"
     }
 }
