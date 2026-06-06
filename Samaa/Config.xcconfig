@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  Samaa
+//
+//  Created by Abdelrahman on 06/06/2026.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+WEATHER_API_KEY = 4d5b9e03e46042b4bb3144150260406
