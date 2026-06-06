@@ -13,13 +13,16 @@ struct ThemeBackgroundView<Content: View>: View {
     let content: () -> Content
 
     var body: some View {
-        ZStack {
+        GeometryReader { _ in
             Image(AppImages.backgroundImage)
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
-
-            content()
         }
+        .overlay(
+            VStack(spacing: 0) {
+                content()
+            }
+        )
     }
 }
