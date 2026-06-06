@@ -35,11 +35,14 @@ struct ForecastCardView: View {
             let forecastDays = Array(days.dropFirst())
 
             ForEach(Array(forecastDays.enumerated()), id: \.offset) { index, day in
-                ForecastRowView(
-                    day: day,
-                    label: label(for: index),
-                    showDivider: index < forecastDays.count - 1
-                )
+                NavigationLink(destination: HourlyView(day: day)) {
+                    ForecastRowView(
+                        day: day,
+                        label: label(for: index),
+                        showDivider: index < forecastDays.count - 1
+                    )
+                }
+                .buttonStyle(PlainButtonStyle())
             }
         }
         .padding(20)

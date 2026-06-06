@@ -18,6 +18,12 @@ struct AppColors {
         AppTheme.current == .day ? daySecondaryText : nightSecondaryText
     }
 
+    static var onTertiary: Color {
+        AppTheme.current == .day
+            ? Color(hex: "9AA5B4")
+            : Color(hex: "4A6080")
+    }
+
     static var cardBackground: Color {
         AppTheme.current == .day
             ? Color.white.opacity(0.25)
@@ -40,12 +46,6 @@ struct AppColors {
         AppTheme.current == .day
             ? Color.white.opacity(0.25)
             : Color.white.opacity(0.07)
-    }
-
-    static var conditionBadgeBackground: Color {
-        AppTheme.current == .day
-            ? Color.black.opacity(0.08)
-            : Color.white.opacity(0.1)
     }
 
     static let highTempColor = Color(hex: "FF4B4B")

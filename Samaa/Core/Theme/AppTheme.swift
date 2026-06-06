@@ -13,6 +13,6 @@ enum AppTheme {
 
     static var current: AppTheme {
         let hour = Calendar.current.component(.hour, from: Date())
-        return (hour >= 5 && hour < 18) ? .day : .night
+        return !(hour >= 5 && hour < 18) ? .day : .night
     }
 }

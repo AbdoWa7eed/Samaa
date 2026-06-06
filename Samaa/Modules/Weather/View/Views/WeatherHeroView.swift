@@ -17,66 +17,39 @@ struct WeatherHeroView: View {
                 .font(.system(size: 32, weight: .semibold))
                 .foregroundColor(AppColors.onPrimary)
 
-            Text("\(Int(weather.tempC))°")
+            Text("\(Int(weather.tempC))")
                 .font(.system(size: 80, weight: .bold))
                 .foregroundColor(AppColors.onPrimary)
+                .overlay(alignment: .topTrailing) {
+                    Text("°")
+                        .font(.system(size: 36, weight: .light))
+                        .foregroundColor(AppColors.onPrimary)
+                        .offset(x: 20, y: 8)
+                }
 
-            conditionBadge
+            ConditionBadgeView(text: weather.conditionText, iconUrl: weather.conditionIconUrl)
 
             tempRangeRow
         }
         .padding(.top, 16)
     }
 
-    private var conditionBadge: some View {
-        HStack(spacing: 8) {
-            AsyncImage(url: URL(string: weather.conditionIconUrl)) { image in
-                image.resizable().scaledToFit()
-            } placeholder: {
-                Image(systemName: AppImages.Icons.cloud)
-                    .foregroundColor(AppColors.onSecondary)
-            }
-            .frame(width: 28, height: 28)
-
-            Text(weather.conditionText)
-                .font(.system(size: 15, weight: .medium))
-                .foregroundColor(AppColors.onPrimary)
-        }
-
-    }
 
     private var tempRangeRow: some View {
         HStack(spacing: 12) {
-            tempPill(
+            TempPillView(
                 icon: AppImages.Icons.highTemp,
+                label: "High",
                 value: "\(Int(weather.forecast.first?.maxTempC ?? 0))°",
                 color: AppColors.highTempColor
             )
-            tempPill(
+            TempPillView(
                 icon: AppImages.Icons.lowTemp,
+                label: "Low",
                 value: "\(Int(weather.forecast.first?.minTempC ?? 0))°",
                 color: AppColors.lowTempColor
             )
         }
         .padding(.top, 4)
-    }
-
-    private func tempPill(icon: String, value: String, color: Color) -> some View {
-        HStack(spacing: 4) {
-            Image(systemName: icon)
-                .font(.system(size: 12, weight: .semibold))
-                .foregroundColor(color)
-            Text(value)
-                .font(.system(size: 15, weight: .medium))
-                .foregroundColor(AppColors.onPrimary)
-        }
-        .padding(.horizontal, 12)
-        .padding(.vertical, 6)
-        .background(AppColors.cardBackground)
-        .cornerRadius(16)
-        .overlay(
-            RoundedRectangle(cornerRadius: 16)
-                .stroke(AppColors.cardBorder, lineWidth: 1)
-        )
     }
 }

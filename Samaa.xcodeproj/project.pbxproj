@@ -46,6 +46,13 @@
 		BCF60F182FD4560F0097F634 /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F172FD4560F0097F634 /* WeatherViewModel.swift */; };
 		BCF60F1A2FD4563D0097F634 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F192FD4563D0097F634 /* LocationManager.swift */; };
 		BCF60F1C2FD459B10097F634 /* Date+Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F1B2FD459B10097F634 /* Date+Formatting.swift */; };
+		BCF60F1F2FD46A100097F634 /* HourlyRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F1E2FD46A100097F634 /* HourlyRowView.swift */; };
+		BCF60F212FD46A380097F634 /* HourlyListCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F202FD46A370097F634 /* HourlyListCardView.swift */; };
+		BCF60F232FD46A520097F634 /* HourlyHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F222FD46A520097F634 /* HourlyHeroView.swift */; };
+		BCF60F252FD46A6A0097F634 /* HourlyToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F242FD46A6A0097F634 /* HourlyToolbarView.swift */; };
+		BCF60F282FD46AAF0097F634 /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F272FD46AAF0097F634 /* HourlyView.swift */; };
+		BCF60F2A2FD476C70097F634 /* TempPillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F292FD476C70097F634 /* TempPillView.swift */; };
+		BCF60F2C2FD477B50097F634 /* ConditionBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF60F2B2FD477B50097F634 /* ConditionBadgeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +97,13 @@
 		BCF60F172FD4560F0097F634 /* WeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModel.swift; sourceTree = "<group>"; };
 		BCF60F192FD4563D0097F634 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BCF60F1B2FD459B10097F634 /* Date+Formatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatting.swift"; sourceTree = "<group>"; };
+		BCF60F1E2FD46A100097F634 /* HourlyRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyRowView.swift; sourceTree = "<group>"; };
+		BCF60F202FD46A370097F634 /* HourlyListCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyListCardView.swift; sourceTree = "<group>"; };
+		BCF60F222FD46A520097F634 /* HourlyHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyHeroView.swift; sourceTree = "<group>"; };
+		BCF60F242FD46A6A0097F634 /* HourlyToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyToolbarView.swift; sourceTree = "<group>"; };
+		BCF60F272FD46AAF0097F634 /* HourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyView.swift; sourceTree = "<group>"; };
+		BCF60F292FD476C70097F634 /* TempPillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempPillView.swift; sourceTree = "<group>"; };
+		BCF60F2B2FD477B50097F634 /* ConditionBadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionBadgeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				BC2732CC2FD2138700FEAAF8 /* ThemeBackgroundView.swift */,
+				BCF60F292FD476C70097F634 /* TempPillView.swift */,
+				BCF60F2B2FD477B50097F634 /* ConditionBadgeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,8 +256,9 @@
 		BC866A1E2FD1DFC000BC185D /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				BC2732B12FD1F29100FEAAF8 /* Splash */,
 				BC866A1F2FD1DFC800BC185D /* Weather */,
+				BC2732B12FD1F29100FEAAF8 /* Splash */,
+				BCF60F1D2FD469E70097F634 /* HourlyForecast */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -358,6 +375,26 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		BCF60F1D2FD469E70097F634 /* HourlyForecast */ = {
+			isa = PBXGroup;
+			children = (
+				BCF60F262FD46A9F0097F634 /* Views */,
+				BCF60F272FD46AAF0097F634 /* HourlyView.swift */,
+			);
+			path = HourlyForecast;
+			sourceTree = "<group>";
+		};
+		BCF60F262FD46A9F0097F634 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BCF60F1E2FD46A100097F634 /* HourlyRowView.swift */,
+				BCF60F202FD46A370097F634 /* HourlyListCardView.swift */,
+				BCF60F222FD46A520097F634 /* HourlyHeroView.swift */,
+				BCF60F242FD46A6A0097F634 /* HourlyToolbarView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -428,13 +465,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF60F2C2FD477B50097F634 /* ConditionBadgeView.swift in Sources */,
 				BCF60F182FD4560F0097F634 /* WeatherViewModel.swift in Sources */,
 				BCF60EEA2FD442FB0097F634 /* SearchLocation.swift in Sources */,
 				BCF60EE32FD442BD0097F634 /* NetworkError.swift in Sources */,
+				BCF60F252FD46A6A0097F634 /* HourlyToolbarView.swift in Sources */,
 				BC2732C62FD2010700FEAAF8 /* AppImages.swift in Sources */,
 				BCF60EE12FD442AF0097F634 /* ApiConstants.swift in Sources */,
 				BCF60F062FD44DF60097F634 /* SavedLocationsServiceProtocol.swift in Sources */,
 				BC2732BA2FD1F3B500FEAAF8 /* Color+Hex.swift in Sources */,
+				BCF60F212FD46A380097F634 /* HourlyListCardView.swift in Sources */,
 				BC7B9DBF2FD1D8E2007C248D /* WeatherView.swift in Sources */,
 				BC7B9DBD2FD1D8E2007C248D /* SamaaApp.swift in Sources */,
 				BC2732C12FD1FDEE00FEAAF8 /* AppTheme.swift in Sources */,
@@ -446,6 +486,7 @@
 				BCF60F1C2FD459B10097F634 /* Date+Formatting.swift in Sources */,
 				BCF60EE82FD442F10097F634 /* WeatherEntity.swift in Sources */,
 				BC2732C42FD1FF3E00FEAAF8 /* AppStrings.swift in Sources */,
+				BCF60F232FD46A520097F634 /* HourlyHeroView.swift in Sources */,
 				BCF60F102FD455680097F634 /* ForecastCardView.swift in Sources */,
 				BC2732C92FD2096800FEAAF8 /* AppRouter.swift in Sources */,
 				BC2732B32FD1F2A300FEAAF8 /* SplashView.swift in Sources */,
@@ -462,8 +503,11 @@
 				BCF60EF32FD443330097F634 /* SearchLocationMapper.swift in Sources */,
 				BCF60EEC2FD443080097F634 /* ForecastResponse.swift in Sources */,
 				BCF60F012FD449CB0097F634 /* SavedLocationsService.swift in Sources */,
+				BCF60F1F2FD46A100097F634 /* HourlyRowView.swift in Sources */,
 				BCF60F0C2FD455310097F634 /* WeatherHeroView.swift in Sources */,
+				BCF60F282FD46AAF0097F634 /* HourlyView.swift in Sources */,
 				BCF60EDF2FD442A10097F634 /* AppContainer.swift in Sources */,
+				BCF60F2A2FD476C70097F634 /* TempPillView.swift in Sources */,
 				BCF60F1A2FD4563D0097F634 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -30,7 +30,7 @@ struct ForecastRowView: View {
                     Image(systemName: AppImages.Icons.cloud)
                         .foregroundColor(AppColors.onSecondary)
                 }
-                .frame(width: 32, height: 32)
+                .frame(width: 40, height: 40)
 
                 Spacer()
 
