@@ -30,6 +30,7 @@ struct AppImages {
         static let back = "chevron.left"
         static let location = "location.fill"
         static let save = "bookmark"
+        static let savedLocation = "bookmark.fill"
 
     }
 }

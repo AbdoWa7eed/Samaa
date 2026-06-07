@@ -16,6 +16,7 @@ struct ForecastResponse: Decodable {
 struct LocationResponse: Decodable {
   let name: String
   let country: String?
+  let region: String?   
   let lat: Double
   let lon: Double
 }

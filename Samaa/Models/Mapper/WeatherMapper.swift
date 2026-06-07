@@ -4,15 +4,26 @@
 //
 //  Created by Abdelrahman on 06/06/2026.
 //
+//
+//  WeatherMapper.swift
+//  Samaa
+//
+//  Created by Abdelrahman on 06/06/2026.
+//
 
 import Foundation
 
 struct WeatherMapper {
 
   static func map(_ response: ForecastResponse) -> WeatherEntity {
-    WeatherEntity(
-      location: response.location.name,
+    let lat = response.location.lat
+    let lon = response.location.lon
+    return WeatherEntity(
+      id: Int(lat * 1000) ^ Int(lon * 1000),
+      cityName: response.location.name,
+      region: response.location.region ?? "",
       country: response.location.country ?? "",
+      coordinate: Coordinate(lat: lat, lon: lon),
       tempC: response.current.tempC ?? 0,
       feelsLikeC: response.current.feelslikeC ?? 0,
       humidity: response.current.humidity ?? 0,

@@ -1,36 +1,35 @@
 //
-//  WeatherToolbarView.swift
+//  MainWeatherToolbarView.swift
 //  Samaa
 //
-//  Created by Abdelrahman on 06/06/2026.
+//  Created by Abdelrahman on 07/06/2026.
 //
 
 import SwiftUI
 
-struct WeatherToolbarView: View {
+struct MainWeatherToolbarView: View {
 
-    let isDetail: Bool
-    let onLeftTapped: () -> Void
-    let onRightTapped: () -> Void
+    let onSavedTapped: () -> Void
+    let onSearchTapped: () -> Void
 
     var body: some View {
         HStack {
-            Button(action: onLeftTapped) {
-                Image(systemName: isDetail ? AppImages.Icons.back : AppImages.Icons.savedLocations)
+            Button(action: onSavedTapped) {
+                Image(systemName: AppImages.Icons.savedLocations)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(AppColors.onPrimary)
             }
 
             Spacer()
 
-            Text(AppStrings.Splash.title)
+            Text(AppStrings.Toolbar.mainTitle)
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(AppColors.onPrimary)
 
             Spacer()
 
-            Button(action: onRightTapped) {
-                Image(systemName: isDetail ? AppImages.Icons.save : AppImages.Icons.search)
+            Button(action: onSearchTapped) {
+                Image(systemName: AppImages.Icons.search)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(AppColors.onPrimary)
             }

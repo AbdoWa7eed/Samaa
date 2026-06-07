@@ -17,10 +17,14 @@ struct SearchBarView: View {
                 .font(.system(size: 16))
                 .foregroundColor(AppColors.onSecondary)
 
-            TextField(AppStrings.Search.searchPlaceholder, text: $text)
+            TextField("", text: $text)
                 .font(.system(size: 16))
                 .foregroundColor(AppColors.onPrimary)
                 .accentColor(AppColors.onPrimary)
+                .placeholder(
+                    AppStrings.Search.searchPlaceholder,
+                    isVisible: text.isEmpty
+                )
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
