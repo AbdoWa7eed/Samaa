@@ -60,6 +60,7 @@ struct AppColors {
             : Color.white.opacity(0.15)
     }
 
+
     static let highTempColor = Color(hex: "FF4B4B")
     static let lowTempColor = Color(hex: "4B9EFF")
 

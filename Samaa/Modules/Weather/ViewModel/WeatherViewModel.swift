@@ -13,16 +13,25 @@ final class WeatherViewModel: ObservableObject {
     @Published private(set) var weather: WeatherEntity?
     @Published private(set) var isLoading = false
     @Published private(set) var errorMessage: String?
+    @Published private(set) var isSaved = false
 
     private let weatherService: WeatherServiceProtocol
+    private let savedLocationsService: SavedLocationsServiceProtocol?
     private let locationManager: LocationManager?
     private let mode: WeatherViewMode
 
-    init(mode: WeatherViewMode, weatherService: WeatherServiceProtocol, locationManager: LocationManager?) {
+    init(
+        mode: WeatherViewMode,
+        weatherService: WeatherServiceProtocol,
+        savedLocationsService: SavedLocationsServiceProtocol?,
+        locationManager: LocationManager?
+    ) {
         self.mode = mode
         self.weatherService = weatherService
+        self.savedLocationsService = savedLocationsService
         self.locationManager = locationManager
     }
+
 
     func onAppear() {
         guard weather == nil else { return }
@@ -38,6 +47,19 @@ final class WeatherViewModel: ObservableObject {
         errorMessage = nil
         onAppear()
     }
+
+    func saveCurrentLocation() {
+        guard let weather = weather,
+              let service = savedLocationsService else { return }
+        if isSaved {
+            service.delete(withId: weather.id)
+            isSaved = false
+        } else {
+            service.save(weather.toSearchLocation())
+            isSaved = true
+        }
+    }
+
 
     private func requestDeviceLocation() {
         isLoading = true
@@ -56,11 +78,18 @@ final class WeatherViewModel: ObservableObject {
         Task { @MainActor in
             do {
                 weather = try await weatherService.fetchForecast(coordinate: coordinate)
+                checkIfSaved()
                 isLoading = false
             } catch {
                 errorMessage = error.localizedDescription
                 isLoading = false
             }
         }
+    }
+
+    private func checkIfSaved() {
+        guard let weather = weather,
+              let service = savedLocationsService else { return }
+        isSaved = service.isSaved(id: weather.id)
     }
 }

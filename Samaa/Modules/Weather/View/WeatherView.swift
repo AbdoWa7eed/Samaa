@@ -5,7 +5,6 @@
 //  Created by Abdelrahman on 04/06/2026.
 //
 
-
 import SwiftUI
 
 struct WeatherView: View {
@@ -13,6 +12,8 @@ struct WeatherView: View {
     let mode: WeatherViewMode
     @StateObject private var viewModel: WeatherViewModel
     @State private var showSearch = false
+    @State private var showSaved = false
+
     @Environment(\.presentationMode) private var presentationMode
 
     init(mode: WeatherViewMode = .currentLocation) {
@@ -25,20 +26,36 @@ struct WeatherView: View {
     var body: some View {
         ThemeBackgroundView {
             VStack(spacing: 0) {
-                WeatherToolbarView(
-                    isDetail: mode.isDetail,
-                    onLeftTapped: handleLeftTap,
-                    onRightTapped: handleRightTap
-                )
+                toolbar
 
                 weatherContent
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
 
                 hiddenSearchLink
+                hiddenSavedLink
             }
         }
         .onAppear { viewModel.onAppear() }
     }
+
+
+    @ViewBuilder
+    private var toolbar: some View {
+        if mode.isDetail {
+            DetailWeatherToolbarView(
+                cityName: viewModel.weather?.cityName ?? "",
+                isSaved: viewModel.isSaved,
+                onBackTapped: handleLeftTap,
+                onSaveTapped: handleRightTap
+            )
+        } else {
+            MainWeatherToolbarView(
+                onSavedTapped: handleLeftTap,
+                onSearchTapped: handleRightTap
+            )
+        }
+    }
+
 
     @ViewBuilder
     private var weatherContent: some View {
@@ -56,6 +73,7 @@ struct WeatherView: View {
         }
     }
 
+
     private var hiddenSearchLink: some View {
         NavigationLink(
             destination: SearchView(),
@@ -65,9 +83,19 @@ struct WeatherView: View {
             .hidden()
     }
 
+    private var hiddenSavedLink: some View {
+        NavigationLink(
+            destination: SavedLocationsView(),
+            isActive: $showSaved
+        ) { EmptyView() }
+            .frame(width: 0, height: 0)
+            .hidden()
+    }
+
+
     private func handleLeftTap() {
         switch mode {
-        case .currentLocation: break
+        case .currentLocation: showSaved = true
         case .selectedLocation: presentationMode.wrappedValue.dismiss()
         }
     }
@@ -75,7 +103,7 @@ struct WeatherView: View {
     private func handleRightTap() {
         switch mode {
         case .currentLocation: showSearch = true
-        case .selectedLocation: break
+        case .selectedLocation: viewModel.saveCurrentLocation()
         }
     }
 }

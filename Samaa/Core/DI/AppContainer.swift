@@ -37,6 +37,7 @@ final class AppContainer {
         WeatherViewModel(
             mode: mode,
             weatherService: weatherService,
+            savedLocationsService: mode.isDetail ? savedLocationsService : nil,
             locationManager: mode.isDetail ? nil : locationManager
         )
     }
@@ -45,5 +46,9 @@ final class AppContainer {
         SearchViewModel(
             weatherService: weatherService
         )
+    }
+    
+    func makeSavedLocationsViewModel() -> SavedLocationsViewModel {
+        SavedLocationsViewModel(savedLocationsService: savedLocationsService)
     }
 }

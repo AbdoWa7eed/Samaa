@@ -37,13 +37,12 @@ struct AppStrings {
         static let retry = "Retry"
         static let conditionBadge = "condition"
     }
-    
-    
+
     struct HourlyForecast {
         static let hourlyForecast = "HOURLY FORECAST"
         static let now = "Now"
     }
-    
+
     struct Search {
         static let searchPlaceholder = "Search city..."
         static let searchLocation = "Search Locations"
@@ -54,5 +53,18 @@ struct AppStrings {
         static let emptyQuerySubtitle = "Type a city name to see its weather"
         static let noResultsSubtitle = "Try a different city name"
     }
-    
+
+    struct SavedLocations {
+        static let title = "Saved Locations"
+        static let emptyTitle = "No saved locations"
+        static let emptySubtitle = "Save cities from search to access them quickly"
+        static let removeTitle = "Remove Location"
+        static func removeMessage(_ name: String) -> String { "Remove \(name) from saved locations?" }
+        static let removeConfirm = "Remove"
+        static let cancel = "Cancel"
+    }
+
+    struct Toolbar {
+        static let mainTitle = AppStrings.Splash.title
+    }
 }

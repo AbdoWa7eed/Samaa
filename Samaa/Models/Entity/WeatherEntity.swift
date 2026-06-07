@@ -8,8 +8,11 @@
 import Foundation
 
 struct WeatherEntity {
-    let location: String
+    let id: Int
+    let cityName: String
+    let region: String
     let country: String
+    let coordinate: Coordinate  
     let tempC: Double
     let feelsLikeC: Double
     let humidity: Int
@@ -34,4 +37,16 @@ struct HourEntity {
     let tempC: Double
     let conditionText: String
     let conditionIconUrl: String
+}
+
+extension WeatherEntity {
+    func toSearchLocation() -> SearchLocation {
+        SearchLocation(
+            id: id,
+            name: cityName,
+            country: country,
+            region: region,
+            coordinate: coordinate
+        )
+    }
 }

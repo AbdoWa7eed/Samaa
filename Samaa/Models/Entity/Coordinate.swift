@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct Coordinate {
     let lat: Double
     let lon: Double
