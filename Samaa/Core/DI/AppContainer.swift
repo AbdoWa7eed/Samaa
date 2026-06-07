@@ -14,22 +14,36 @@ final class AppContainer {
 
     private init() {
         self.apiClient = ApiClient()
+        self.persistenceController = PersistenceController()
     }
 
     private let apiClient: ApiClientProtocol
+    private let persistenceController: PersistenceController
 
     private lazy var weatherService: WeatherServiceProtocol = {
         WeatherService(apiClient: self.apiClient)
+    }()
+    
+    private lazy var savedLocationsService: SavedLocationsServiceProtocol = {
+        SavedLocationsService(persistenceController: persistenceController)
     }()
     
     private lazy var locationManager: LocationManager = {
         LocationManager()
     }()
 
-    func makeWeatherViewModel() -> WeatherViewModel {
+    
+    func makeWeatherViewModel(mode: WeatherViewMode) -> WeatherViewModel {
         WeatherViewModel(
+            mode: mode,
             weatherService: weatherService,
-            locationManager: locationManager
+            locationManager: mode.isDetail ? nil : locationManager
+        )
+    }
+    
+    func makeSearchViewModel() -> SearchViewModel {
+        SearchViewModel(
+            weatherService: weatherService
         )
     }
 }

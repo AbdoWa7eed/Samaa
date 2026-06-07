@@ -9,11 +9,10 @@ import CoreData
 
 final class PersistenceController {
 
-    static let shared = PersistenceController()
     static let containerName = "Samaa"
     let container: NSPersistentContainer
 
-    private init() {
+    init() {
         container = NSPersistentContainer(name: Self.containerName)
         container.loadPersistentStores { _, error in
             if let error = error {

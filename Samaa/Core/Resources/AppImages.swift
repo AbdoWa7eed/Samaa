@@ -28,5 +28,8 @@ struct AppImages {
         static let highTemp = "thermometer.sun"
         static let lowTemp = "thermometer.snowflake"
         static let back = "chevron.left"
+        static let location = "location.fill"
+        static let save = "bookmark"
+
     }
 }

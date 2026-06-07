@@ -9,13 +9,14 @@ import SwiftUI
 
 struct WeatherToolbarView: View {
 
-    let onSearchTapped: () -> Void
-    let onSavedTapped: () -> Void
+    let isDetail: Bool
+    let onLeftTapped: () -> Void
+    let onRightTapped: () -> Void
 
     var body: some View {
         HStack {
-            Button(action: onSavedTapped) {
-                Image(systemName: AppImages.Icons.savedLocations)
+            Button(action: onLeftTapped) {
+                Image(systemName: isDetail ? AppImages.Icons.back : AppImages.Icons.savedLocations)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(AppColors.onPrimary)
             }
@@ -28,8 +29,8 @@ struct WeatherToolbarView: View {
 
             Spacer()
 
-            Button(action: onSearchTapped) {
-                Image(systemName: AppImages.Icons.search)
+            Button(action: onRightTapped) {
+                Image(systemName: isDetail ? AppImages.Icons.save : AppImages.Icons.search)
                     .font(.system(size: 20, weight: .medium))
                     .foregroundColor(AppColors.onPrimary)
             }

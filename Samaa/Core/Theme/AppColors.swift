@@ -47,6 +47,18 @@ struct AppColors {
             ? Color.white.opacity(0.25)
             : Color.white.opacity(0.07)
     }
+    
+    static var searchBarBackground: Color {
+        AppTheme.current == .day
+            ? Color.white.opacity(0.35)
+            : Color.white.opacity(0.1)
+    }
+
+    static var searchBarBorder: Color {
+        AppTheme.current == .day
+            ? Color.white.opacity(0.5)
+            : Color.white.opacity(0.15)
+    }
 
     static let highTempColor = Color(hex: "FF4B4B")
     static let lowTempColor = Color(hex: "4B9EFF")
