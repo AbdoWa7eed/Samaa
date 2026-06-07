@@ -43,4 +43,16 @@ struct AppStrings {
         static let hourlyForecast = "HOURLY FORECAST"
         static let now = "Now"
     }
+    
+    struct Search {
+        static let searchPlaceholder = "Search city..."
+        static let searchLocation = "Search Locations"
+        static let noSavedLocations = "No saved locations yet"
+        static let noResults = "No results found"
+        static let searching = "Searching..."
+        static let emptyQueryTitle = "Search for a city"
+        static let emptyQuerySubtitle = "Type a city name to see its weather"
+        static let noResultsSubtitle = "Try a different city name"
+    }
+    
 }

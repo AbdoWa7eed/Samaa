@@ -5,89 +5,77 @@
 //  Created by Abdelrahman on 04/06/2026.
 //
 
+
 import SwiftUI
 
 struct WeatherView: View {
 
-    @StateObject private var viewModel = AppContainer.shared.makeWeatherViewModel()
+    let mode: WeatherViewMode
+    @StateObject private var viewModel: WeatherViewModel
+    @State private var showSearch = false
+    @Environment(\.presentationMode) private var presentationMode
+
+    init(mode: WeatherViewMode = .currentLocation) {
+        self.mode = mode
+        self._viewModel = StateObject(
+            wrappedValue: AppContainer.shared.makeWeatherViewModel(mode: mode)
+        )
+    }
 
     var body: some View {
         ThemeBackgroundView {
             VStack(spacing: 0) {
                 WeatherToolbarView(
-                    onSearchTapped: {},
-                    onSavedTapped: {}
+                    isDetail: mode.isDetail,
+                    onLeftTapped: handleLeftTap,
+                    onRightTapped: handleRightTap
                 )
 
-                Group {
-                    if viewModel.isLoading {
-                        loadingView()
-                    } else if let error = viewModel.errorMessage {
-                        errorView(message: error)
-                    } else if let weather = viewModel.weather {
-                        contentView(weather: weather)
-                    }
-                }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                weatherContent
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+
+                hiddenSearchLink
             }
         }
-        .onAppear {
-            viewModel.onAppear()
-        }
+        .onAppear { viewModel.onAppear() }
     }
 
-    private func loadingView() ->  some View {
-        ProgressView()
-            .tint(AppColors.onPrimary)
-            .scaleEffect(1.5)
-    }
-
-    private func errorView(message: String) -> some View {
-        VStack(spacing: 16) {
-            Image(systemName: AppImages.Icons.error)
-                .font(.system(size: 40))
-                .foregroundColor(AppColors.onSecondary)
-            Text(message)
-                .font(.system(size: 16))
-                .foregroundColor(AppColors.onSecondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-            Button(action: viewModel.retry) {
-                Text(AppStrings.Weather.retry)
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundColor(AppColors.onPrimary)
-                    .padding(.horizontal, 32)
-                    .padding(.vertical, 12)
-                    .background(AppColors.cardBackground)
-                    .cornerRadius(20)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(AppColors.cardBorder, lineWidth: 1)
-                    )
-            }
+    @ViewBuilder
+    private var weatherContent: some View {
+        if viewModel.isLoading {
+            ProgressView()
+                .tint(AppColors.onPrimary)
+                .scaleEffect(1.5)
+        } else if let error = viewModel.errorMessage {
+            WeatherErrorView(
+                message: error,
+                onRetry: viewModel.retry
+            )
+        } else if let weather = viewModel.weather {
+            WeatherContentView(weather: weather)
         }
     }
 
-    private func contentView(weather: WeatherEntity) -> some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 20) {
-                NavigationLink(destination: HourlyView(day: weather.forecast[0])) {
-                    WeatherHeroView(weather: weather)
-                }
-                .buttonStyle(PlainButtonStyle())
+    private var hiddenSearchLink: some View {
+        NavigationLink(
+            destination: SearchView(),
+            isActive: $showSearch
+        ) { EmptyView() }
+            .frame(width: 0, height: 0)
+            .hidden()
+    }
 
-                ForecastCardView(days: weather.forecast)
-                    .padding(.horizontal, 20)
+    private func handleLeftTap() {
+        switch mode {
+        case .currentLocation: break
+        case .selectedLocation: presentationMode.wrappedValue.dismiss()
+        }
+    }
 
-                MetricsGridView(
-                    visibilityKm: weather.visibilityKm,
-                    humidity: weather.humidity,
-                    feelsLikeC: weather.feelsLikeC,
-                    pressureMb: weather.pressureMb
-                )
-                .padding(.horizontal, 20)
-            }
-            .padding(.bottom, 32)
+    private func handleRightTap() {
+        switch mode {
+        case .currentLocation: showSearch = true
+        case .selectedLocation: break
         }
     }
 }
