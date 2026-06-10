@@ -51,7 +51,8 @@ struct WeatherView: View {
         } else {
             MainWeatherToolbarView(
                 onSavedTapped: handleLeftTap,
-                onSearchTapped: handleRightTap
+                onSearchTapped: handleRightTap,
+                cityName: viewModel.weather?.cityName ?? ""
             )
         }
     }

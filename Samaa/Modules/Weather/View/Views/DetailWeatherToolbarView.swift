@@ -26,7 +26,7 @@ struct DetailWeatherToolbarView: View {
 
             Spacer()
 
-            Text(AppStrings.Toolbar.mainTitle)
+            Text(cityName)
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(AppColors.onPrimary)
 

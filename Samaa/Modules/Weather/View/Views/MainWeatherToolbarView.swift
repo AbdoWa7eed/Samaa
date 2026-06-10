@@ -11,6 +11,7 @@ struct MainWeatherToolbarView: View {
 
     let onSavedTapped: () -> Void
     let onSearchTapped: () -> Void
+    let cityName: String
 
     var body: some View {
         HStack {
@@ -22,7 +23,7 @@ struct MainWeatherToolbarView: View {
 
             Spacer()
 
-            Text(AppStrings.Toolbar.mainTitle)
+            Text(cityName)
                 .font(.system(size: 28, weight: .bold))
                 .foregroundColor(AppColors.onPrimary)
 

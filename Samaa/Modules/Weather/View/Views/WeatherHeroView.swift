@@ -13,10 +13,6 @@ struct WeatherHeroView: View {
 
     var body: some View {
         VStack(spacing: 8) {
-            Text(weather.cityName)
-                .font(.system(size: 32, weight: .semibold))
-                .foregroundColor(AppColors.onPrimary)
-
             Text("\(Int(weather.tempC))")
                 .font(.system(size: 80, weight: .bold))
                 .foregroundColor(AppColors.onPrimary)
