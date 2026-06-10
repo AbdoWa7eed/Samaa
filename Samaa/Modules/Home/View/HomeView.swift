@@ -44,6 +44,8 @@ struct HomeView: View {
     private var content: some View {
         if viewModel.isLoading {
             ProgressView()
+                .tint(AppColors.onPrimary)
+                .scaleEffect(1.5)
         } else if let error = viewModel.errorMessage {
             WeatherErrorView(
                 message: error,
