@@ -45,7 +45,7 @@ struct SplashView: View {
         .onAppear {
             animate = true
             DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                router.showWeather()
+                router.showHome()
             }
         }
     }

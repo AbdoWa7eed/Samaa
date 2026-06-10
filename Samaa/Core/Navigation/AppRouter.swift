@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-enum AppScreen {
-    case splash
-    case weather
-}
-
-
 final class AppRouter: ObservableObject {
-    @Published private(set) var currentScreen: AppScreen = .splash
 
-    func showWeather() {
-        currentScreen = .weather
+    enum AppScreen {
+        case splash
+        case home
+    }
+
+    @Published var currentScreen: AppScreen = .splash
+
+    func showHome() {
+        currentScreen = .home
     }
 }

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 final class AppContainer {
 
     static let shared = AppContainer()
@@ -23,16 +22,15 @@ final class AppContainer {
     private lazy var weatherService: WeatherServiceProtocol = {
         WeatherService(apiClient: self.apiClient)
     }()
-    
+
     private lazy var savedLocationsService: SavedLocationsServiceProtocol = {
         SavedLocationsService(persistenceController: persistenceController)
     }()
-    
+
     private lazy var locationManager: LocationManager = {
         LocationManager()
     }()
 
-    
     func makeWeatherViewModel(mode: WeatherViewMode) -> WeatherViewModel {
         WeatherViewModel(
             mode: mode,
@@ -41,14 +39,20 @@ final class AppContainer {
             locationManager: mode.isDetail ? nil : locationManager
         )
     }
-    
+
     func makeSearchViewModel() -> SearchViewModel {
-        SearchViewModel(
-            weatherService: weatherService
-        )
+        SearchViewModel(weatherService: weatherService)
     }
-    
-    func makeSavedLocationsViewModel() -> SavedLocationsViewModel {
+
+    @MainActor func makeSavedLocationsViewModel() -> SavedLocationsViewModel {
         SavedLocationsViewModel(savedLocationsService: savedLocationsService)
+    }
+
+    @MainActor func makeHomeViewModel() -> HomeViewModel {
+        HomeViewModel(
+            weatherService: weatherService,
+            savedLocationsService: savedLocationsService,
+            locationManager: locationManager
+        )
     }
 }

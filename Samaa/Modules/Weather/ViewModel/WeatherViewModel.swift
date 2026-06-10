@@ -32,7 +32,6 @@ final class WeatherViewModel: ObservableObject {
         self.locationManager = locationManager
     }
 
-
     func onAppear() {
         guard weather == nil else { return }
         switch mode {
@@ -59,7 +58,6 @@ final class WeatherViewModel: ObservableObject {
             isSaved = true
         }
     }
-
 
     private func requestDeviceLocation() {
         isLoading = true

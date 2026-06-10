@@ -19,7 +19,7 @@ struct ConditionBadgeView: View {
                     image.resizable().scaledToFit()
                 } placeholder: {
                     Image(systemName: AppImages.Icons.cloud)
-                        .resizable().scaledToFit()
+                        .resizable().frame(width: 40, height: 40)
                         .foregroundColor(AppColors.onPrimary)
                 }
                 .frame(width: 60, height: 60)

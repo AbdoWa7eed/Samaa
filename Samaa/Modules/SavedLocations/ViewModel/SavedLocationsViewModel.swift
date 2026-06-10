@@ -6,23 +6,31 @@
 //
 
 import Foundation
+import Combine
 
+@MainActor
 final class SavedLocationsViewModel: ObservableObject {
 
     @Published private(set) var locations: [SearchLocation] = []
 
     private let savedLocationsService: SavedLocationsServiceProtocol
+    private var cancellables = Set<AnyCancellable>()
 
     init(savedLocationsService: SavedLocationsServiceProtocol) {
         self.savedLocationsService = savedLocationsService
+        setupBindings()
     }
 
-    func onAppear() {
-        locations = savedLocationsService.fetchAll()
+    private func setupBindings() {
+        savedLocationsService.fetchAll()
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] updatedLocations in
+                self?.locations = updatedLocations
+            }
+            .store(in: &cancellables)
     }
 
-    func delete(_ location: SearchLocation) {
+    @MainActor func delete(_ location: SearchLocation) {
         savedLocationsService.delete(withId: location.id)
-        locations = savedLocationsService.fetchAll()
     }
 }

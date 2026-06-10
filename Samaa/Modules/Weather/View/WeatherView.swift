@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct WeatherView: View {
-
     let mode: WeatherViewMode
     @StateObject private var viewModel: WeatherViewModel
-    @State private var showSearch = false
-    @State private var showSaved = false
-
+    @State private var navigateToSaved = false
+    @State private var navigateToSearch = false
     @Environment(\.presentationMode) private var presentationMode
 
     init(mode: WeatherViewMode = .currentLocation) {
@@ -27,36 +25,45 @@ struct WeatherView: View {
         ThemeBackgroundView {
             VStack(spacing: 0) {
                 toolbar
-
                 weatherContent
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-                hiddenSearchLink
-                hiddenSavedLink
             }
+            .background(
+                ZStack {
+                    NavigationLink(destination: SavedLocationsView(), isActive: $navigateToSaved) { EmptyView() }
+                    NavigationLink(destination: SearchView(), isActive: $navigateToSearch) { EmptyView() }
+                }
+            )
         }
-        .onAppear { viewModel.onAppear() }
+        .onAppear {
+            viewModel.onAppear()
+        }
     }
-
 
     @ViewBuilder
     private var toolbar: some View {
+        let cityName = viewModel.weather?.cityName ?? ""
+        
         if mode.isDetail {
-            DetailWeatherToolbarView(
-                cityName: viewModel.weather?.cityName ?? "",
-                isSaved: viewModel.isSaved,
-                onBackTapped: handleLeftTap,
-                onSaveTapped: handleRightTap
+            WeatherToolbarView(
+                cityName: cityName,
+                type: .detail(
+                    isSaved: viewModel.isSaved,
+                    isLoading: viewModel.isLoading,
+                    onBackTapped: handleBack,
+                    onSaveTapped: handleSave
+                )
             )
         } else {
-            MainWeatherToolbarView(
-                onSavedTapped: handleLeftTap,
-                onSearchTapped: handleRightTap,
-                cityName: viewModel.weather?.cityName ?? ""
+            WeatherToolbarView(
+                cityName: cityName,
+                type: .main(
+                    onSavedTapped: { navigateToSaved = true },
+                    onSearchTapped: { navigateToSearch = true }
+                )
             )
         }
     }
-
 
     @ViewBuilder
     private var weatherContent: some View {
@@ -74,43 +81,16 @@ struct WeatherView: View {
         }
     }
 
-
-    private var hiddenSearchLink: some View {
-        NavigationLink(
-            destination: SearchView(),
-            isActive: $showSearch
-        ) { EmptyView() }
-            .frame(width: 0, height: 0)
-            .hidden()
-    }
-
-    private var hiddenSavedLink: some View {
-        NavigationLink(
-            destination: SavedLocationsView(),
-            isActive: $showSaved
-        ) { EmptyView() }
-            .frame(width: 0, height: 0)
-            .hidden()
-    }
-
-
-    private func handleLeftTap() {
+    private func handleBack() {
         switch mode {
-        case .currentLocation: showSaved = true
-        case .selectedLocation: presentationMode.wrappedValue.dismiss()
+        case .currentLocation:
+            presentationMode.wrappedValue.dismiss()
+        case .selectedLocation:
+            presentationMode.wrappedValue.dismiss()
         }
     }
 
-    private func handleRightTap() {
-        switch mode {
-        case .currentLocation: showSearch = true
-        case .selectedLocation: viewModel.saveCurrentLocation()
-        }
-    }
-}
-
-struct WeatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        WeatherView()
+    private func handleSave() {
+        viewModel.saveCurrentLocation()
     }
 }

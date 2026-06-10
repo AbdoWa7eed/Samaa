@@ -25,7 +25,9 @@ struct SavedLocationsView: View {
                     } else {
                         SavedLocationsListView(
                             locations: viewModel.locations,
-                            onDelete: viewModel.delete
+                            onDelete: { location in
+                                viewModel.delete(location)
+                            }
                         )
                     }
                 }
@@ -33,7 +35,5 @@ struct SavedLocationsView: View {
             }
         }
         .hiddenNavigationBar()
-        .onAppear { viewModel.onAppear() }
     }
 }
-

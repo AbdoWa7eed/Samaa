@@ -15,13 +15,23 @@ struct SamaaApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                switch router.currentScreen {
-                    case .splash: SplashView().hiddenNavigationBar()
-                    case .weather: WeatherView().hiddenNavigationBar()
-                }
+                rootView
+                    .navigationBarHidden(true)
             }
-            .navigationViewStyle(.stack)
+            .navigationViewStyle(StackNavigationViewStyle())
             .environmentObject(router)
+        }
+    }
+
+    @ViewBuilder
+    private var rootView: some View {
+        switch router.currentScreen {
+
+        case .splash:
+            SplashView()
+
+        case .home:
+            HomeView()
         }
     }
 }
